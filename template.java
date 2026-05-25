@@ -5,8 +5,6 @@ import java.util.*;
 class Class {
 
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in); // local variable
-        println(sc.nextLine());
     }
 
     public static void println() {
@@ -28,8 +26,21 @@ class Class {
         println();
     }
 
+    public static void printArr(int[] arr) {
+        for (int obj : arr) {
+            print(obj + " ");
+        }
+        println();
+    }
+
     public static void print2DArr(Object[][] arr) {
         for (Object[] subArr : arr) {
+            printArr(subArr);
+        }
+    }
+
+    public static void print2DArr(int[][] arr) {
+        for (int[] subArr : arr) {
             printArr(subArr);
         }
     }

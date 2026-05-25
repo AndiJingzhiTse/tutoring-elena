@@ -1,9 +1,19 @@
 package OOP;
 
+import java.util.*;
+
 public class OOP {
 
     // Object-Oriented Programming
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("please enter x coor: ");
+        double x = sc.nextDouble();
+        System.out.print("please enter y coor: ");
+        double y = sc.nextDouble();
+        Coor cxy = new Coor(x, y); // xy coordinate 
+        System.out.println("(" + cxy.x + ", " + cxy.y + ")");
+
         // freshly made from factory
         Coor c1 = new Coor(1, 2); // construct a Coor object
         // customize/monipulate how the object 
@@ -18,7 +28,9 @@ public class OOP {
         c2.x = 3;
         c2.y = 4;
 
-        Coor c3 = new Coor(3, 4);
+        Coor c3 = new Coor(3, 4); // instantiate
+        System.out.println(c2.equals(c3)); // true
+        "a".compareTo("b"); // -1 "a" - "b"
 
         System.out.println("C1: (" + c1.x + ", " + c1.y + ")");
         System.out.println("C2: (" + c2.x + ", " + c2.y + ")");

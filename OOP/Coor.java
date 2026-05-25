@@ -1,9 +1,26 @@
 package OOP;
 
 // blueprints of Coor 
-public class Coor {
+
+public class Coor implements Comparable<Coor> {
 
     /*
+    extends class
+    implements interface
+    */
+    /*
+    equals() compareTo(), indexOf    instanceof
+
+    interface
+    concrete vs abstract (interface, abstract class)
+     */
+
+    /*
+    feedMilk - interface
+    mammals - abstract class, implements feedMilk
+    dog, cat, human - concrete class, extends mammals
+    */
+ /*
     static: belongs to the class, not the object, line of car
     instance: belongs to the object, car itself
      */
@@ -29,9 +46,11 @@ public class Coor {
     // overloaded constructor: same name, different parameters
     public Coor() {
         // default to (0,0)
-        this.x = 0;
-        this.y = 0;
-        coorCount++;
+        // this.x = 0;
+        // this.y = 0;
+        // coorCount++;
+
+        this(0, 0);
     }
 
     // actions, doer
@@ -58,14 +77,23 @@ public class Coor {
         this.password = password;
     }
 
-    /*
-    access modifier
-    public: can be accessed from anywhere
-    private: can only be accessed within the class
-    default (no modifier): can be accessed within the same package
-    protected: can be accessed within the same package and subclasses
-     */
-    public static void CoorCount() {
-        System.out.println(x);
+    @Override
+    public boolean equals(Object obj) {
+        // can access this
+        if (obj instanceof Coor) {
+            Coor smth = (Coor) obj; // downcasting
+            return this.x == smth.x && this.y == smth.y;
+        }
+        return false;
+    }
+
+    // (2,3).compareTo((2,5)) -> -2
+    public int compareTo(Coor other) {
+        if (this.x != other.x) {
+            return (int) (x - other.x);
+        } else {
+            // y is tie breaker
+            return (int) (y - other.y);
+        }
     }
 }
